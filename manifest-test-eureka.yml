@@ -1,0 +1,18 @@
+---
+instances: 1
+memory: 512M
+applications:
+- name: message-generation
+  random-route: true
+  path: apps/message-generation-0.0.1-SNAPSHOT.jar
+  services:
+  - my-service-registry
+- name: greeter
+  random-route: true
+  path: apps/greeter-0.0.1-SNAPSHOT.jar
+  services:
+  - my-service-registry
+env:
+  SPRING_PROFILES_ACTIVE: dev
+  CF_TARGET: https://api.CHANGE_ME_TO_YOUR_CF_API
+
